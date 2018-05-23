@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import sv.edu.ugb.Ferreteria.modelo.DireccionClientes;
 
 
-public interface DirecionClientesDAO extends JpaRepository<DireccionClientes, Long>
+public interface DireccionClientesDAO extends JpaRepository<DireccionClientes, Long>
 {
     
 }

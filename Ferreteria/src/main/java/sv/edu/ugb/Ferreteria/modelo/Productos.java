@@ -8,11 +8,18 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import sv.edu.ugb.Ferreteria.modelo.Categorias;
 
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Productos implements Serializable
 {
     @Id
@@ -27,7 +34,7 @@ public class Productos implements Serializable
     private Double precio;
     @Column(name = "existencias")
     private Double existencias;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idCategoria")
     private Categorias idCategoria;
 
@@ -78,6 +85,6 @@ public class Productos implements Serializable
     public void setIdCategoria(Categorias idCategoria) {
         this.idCategoria = idCategoria;
     }
-    
-    
+
+
 }

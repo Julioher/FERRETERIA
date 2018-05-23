@@ -7,10 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Categorias implements Serializable
 {
+   
     @Id
     @Column(name = "idCategoria")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +28,7 @@ public class Categorias implements Serializable
     private String nombre;
     @Column(name = "descripcion")
     private String descripcion;
-
+   
     public Long getIdCategoria() {
         return idCategoria;
     }
@@ -43,6 +52,6 @@ public class Categorias implements Serializable
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
+
+
 }

@@ -8,12 +8,18 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class DireccionClientes implements Serializable
-        
+
 {
     @Id
     @Column(name = "id_direccion")
@@ -21,9 +27,9 @@ public class DireccionClientes implements Serializable
     private Long id_direccion;
     @Column(name = "direccion_cliente")
     private String direccion_cliente;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cliente")
-    private  Clientes id_cliente;
+   @ManyToOne(fetch = FetchType.EAGER)
+   @JoinColumn(name = "id_cliente")
+   private  Clientes idCliente;
 
     public Long getId_direccion() {
         return id_direccion;
@@ -42,12 +48,12 @@ public class DireccionClientes implements Serializable
     }
 
     public Clientes getId_cliente() {
-        return id_cliente;
+        return idCliente;
     }
 
     public void setId_cliente(Clientes id_cliente) {
-        this.id_cliente = id_cliente;
+        this.idCliente = id_cliente;
     }
-    
-    
+
+
 }
